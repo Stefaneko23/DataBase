@@ -1,0 +1,38 @@
+<!-- update-page-student.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records Page</title>
+    <link rel="stylesheet" href="/STYLE.css">
+</head>
+<body>
+    <h1 class="titlu">Update Page Studenti</h1>
+
+    <form action="/update-page-student" method="post" class="update-form">
+        <input type="hidden" name="idToUpdate" value="<%= idToUpdate %>">
+        
+        <label for="updatedField" class="form-label">Selectați câmpul pentru a actualiza:</label>
+        <select name="updatedField" id="updatedField" class="form-select">
+            <option value="Nume">Nume</option>
+            <option value="Prenume">Prenume</option>
+            <option value="CNP">CNP</option>
+            <option value="Email">Email</option>
+            <option value="Sex">Sex</option>
+            <option value="Data_nasterii">Data Nasterii</option>
+            <option value="ID_Departament">ID Departament</option>
+        </select>
+
+        <label for="updatedValue" class="form-label">Valoare nouă:</label>
+        <input type="text" name="updatedValue" required class="form-input">
+
+        <button type="submit" class="form-button">Actualizare Studenti</button>
+    </form>
+    
+        <% if (error && error !== 'Incomplete data for update') { %>
+            <p class="error-message"><%= error %></p>
+        <% } %>
+
+</body>
+</html>

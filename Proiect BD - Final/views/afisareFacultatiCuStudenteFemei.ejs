@@ -1,0 +1,36 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+
+  <form action="/afisareFacultatiCuStudenteFemei" method="post">
+    <label for="gender">Selecteaza sexul:</label>
+    <select name="selectedGender" id="gender">
+      <option value="F" <% if (selectedGender === 'F') { %>selected<% } %>>Female</option>
+      <option value="M" <% if (selectedGender === 'M') { %>selected<% } %>>Male</option>
+    </select>
+    <button type="submit">Submit</button>
+  </form>
+
+  <h2>-1-Afișează toate facultățile care au cel puțin un student de sex feminin:</h2>
+  <table class="facultati-cu-studenti-femei">
+    <thead>
+      <tr>
+        <th>Nume_Facultate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < facultatiCuStudenteFemeiSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= facultatiCuStudenteFemeiSet[i].Nume_Facultate %>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</body>

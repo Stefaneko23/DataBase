@@ -1,0 +1,36 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+
+
+  <h2>-3-Afișează sălile dotate cu calculatoare: </h2>
+  <table class="sali-cu-calculatoare">
+    <thead>
+      <tr>
+        <th>ID_Sala</th>
+        <th>Numar</th>
+        <th>Capacitate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < saliCuCalculatoareSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= saliCuCalculatoareSet[i].ID_Sala %>
+          </td>
+          <td>
+            <%= saliCuCalculatoareSet[i].Numar %>
+          </td>
+          <td>
+            <%= saliCuCalculatoareSet[i].Capacitate %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+</body>

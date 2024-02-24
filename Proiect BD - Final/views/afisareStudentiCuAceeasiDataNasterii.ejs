@@ -1,0 +1,40 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+
+
+  <h2>-3-Afișează studenții care au cel puțin un coleg cu aceeași dată de naștere:</h2>
+  <table class="studenti-cu-aceeasi-data-nasterii">
+    <thead>
+      <tr>
+        <th>ID_Student</th>
+        <th>Nume</th>
+        <th>Prenume</th>
+        <th>Data_nasterii</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < studentiCuAceeasiDataNasteriiSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= studentiCuAceeasiDataNasteriiSet[i].ID_Student %>
+          </td>
+          <td>
+            <%= studentiCuAceeasiDataNasteriiSet[i].Nume %>
+          </td>
+          <td>
+            <%= studentiCuAceeasiDataNasteriiSet[i].Prenume %>
+          </td>
+          <td>
+            <%= studentiCuAceeasiDataNasteriiSet[i].Data_nasterii %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+</body>

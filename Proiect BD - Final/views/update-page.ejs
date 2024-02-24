@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Records Page</title>
+    <link rel="stylesheet" href="/STYLE.css">
+</head>
+<body>
+    <h1 class="titlu">Update Page</h1>
+
+    <form action="/update" method="post" class="update-form">
+        <input type="hidden" name="idToUpdate" value="<%= idToUpdate %>">
+        
+        <label for="updatedField" class="form-label">Selectati camp pentru a updata:</label>
+        <select name="updatedField" id="updatedField" class="form-select">
+            <option value="Nume">Nume</option>
+            <option value="Cod_Departament">Cod Departament</option>
+            <option value="Decan">Decan</option>
+            <option value="ID_Facultate">ID Facultate</option>
+        </select>
+
+        <label for="updatedValue" class="form-label">Valoare noua:</label>
+        <input type="text" name="updatedValue" required class="form-input">
+
+        <button type="submit" class="form-button">Update</button>
+    </form>
+</body>
+</html>

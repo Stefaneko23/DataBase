@@ -1,0 +1,33 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+
+  <h2>-2-Afisati numele si prenumele studentilor care apartin "Sisteme Electroenergetice" si sunt nascuti dupa anul
+    2002(inclusiv):</h2>
+  <table class="studenti-sisteme-electroenergetice">
+    <thead>
+      <tr>
+        <th>Nume</th>
+        <th>Prenume</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < studentiSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= studentiSet[i].Nume %>
+          </td>
+          <td>
+            <%= studentiSet[i].Prenume %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+
+</body>

@@ -1,0 +1,28 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+
+
+  <h2>-4-Afișează departamentele care au cel puțin doi studenți și au pe aceeasi adresa:</h2>
+  <table class="departamente-cu-studenti-si-facultati-comune">
+    <thead>
+      <tr>
+        <th>Nume_Departament</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < departamenteCuStudentiSiFacultatiComuneSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= departamenteCuStudentiSiFacultatiComuneSet[i].Nume_Departament %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+</body>

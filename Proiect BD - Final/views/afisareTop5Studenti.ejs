@@ -1,0 +1,42 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+  <h2>-5-Sa se gaseasca cei mai mari 5 studenti inscrisi la facultate:</h2>
+  <table class="top5-studenti">
+    <thead>
+      <tr>
+        <th>ID_Student</th>
+        <th>Nume</th>
+        <th>Prenume</th>
+        <th>Data_nasterii</th>
+        <th>ID_Departament</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < top5StudentiSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= top5StudentiSet[i].ID_Student %>
+          </td>
+          <td>
+            <%= top5StudentiSet[i].Nume %>
+          </td>
+          <td>
+            <%= top5StudentiSet[i].Prenume %>
+          </td>
+          <td>
+            <%= top5StudentiSet[i].Data_nasterii %>
+          </td>
+          <td>
+            <%= top5StudentiSet[i].ID_Departament %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+</body>

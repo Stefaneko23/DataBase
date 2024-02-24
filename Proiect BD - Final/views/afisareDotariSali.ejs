@@ -1,0 +1,40 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+
+
+  <h2>-1-Afișează numele și capacitatea sălilor împreună cu denumirea dotărilor asociate:</h2>
+  <table class="dotari-sali">
+    <thead>
+      <tr>
+        <th>Numar</th>
+        <th>Capacitate</th>
+        <th>ID_Dotare</th>
+        <th>Nume_Dotare</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < dotariSaliSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= dotariSaliSet[i].Numar %>
+          </td>
+          <td>
+            <%= dotariSaliSet[i].Capacitate %>
+          </td>
+          <td>
+            <%= dotariSaliSet[i].ID_Dotare %>
+          </td>
+          <td>
+            <%= dotariSaliSet[i].Nume_Dotare %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+</body>

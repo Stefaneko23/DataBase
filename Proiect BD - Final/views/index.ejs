@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+  <h1 class="titlu">Date despre Departamente</h1>
+
+  <form action="/insert" method="post" class="departamente">
+    <input type="text" name="idDepartament" placeholder="ID_Departament" class="form-input">
+    <input type="text" name="nume" placeholder="Nume" class="form-input">
+    <input type="text" name="codDepartament" placeholder="Cod Departament" class="form-input">
+    <input type="text" name="decan" placeholder="Decan" class="form-input">
+    <input type="text" name="idFacultate" placeholder="ID Facultate" class="form-input">
+    <button type="submit" class="form-button">Insert</button>
+  </form>
+
+  <table class="departamente">
+    <thead>
+      <tr>
+        <th>ID_Departament</th>
+        <th>Nume</th>
+        <th>Cod_Departament</th>
+        <th>Decan</th>
+        <th>ID_Facultate</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% firstSet.forEach(function(record) { %>
+        <tr>
+          <td>
+            <%= record.ID_Departament %>
+          </td>
+          <td>
+            <%= record.Nume %>
+          </td>
+          <td>
+            <%= record.Cod_Departament %>
+          </td>
+          <td>
+            <%= record.Decan %>
+          </td>
+          <td>
+            <%= record.ID_Facultate %>
+          </td>
+          <td>
+            <form action="/update-page" method="get">
+              <input type="hidden" name="idToUpdate" value="<%= record.ID_Departament %>">
+              <button type="submit" class="form-button">Update</button>
+            </form>
+            <form action="/delete" method="post">
+              <input type="hidden" name="idToDelete" value="<%= record.ID_Departament %>">
+              <button type="submit" class="form-button">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+
+  <h1 class="titlu">Date despre Studenti</h1>
+
+  <form action="/insert-student" method="post" class="studenti">
+    <input type="text" name="idStudent" placeholder="ID_Student" class="form-input">
+    <input type="text" name="nume" placeholder="Nume" class="form-input">
+    <input type="text" name="prenume" placeholder="Prenume" class="form-input">
+    <input type="text" name="cnp" placeholder="CNP" class="form-input">
+    <input type="text" name="email" placeholder="Email" class="form-input">
+    <input type="text" name="sex" placeholder="Sex" class="form-input">
+    <input type="text" name="dataNasterii" placeholder="Data_nasterii" class="form-input">
+    <input type="text" name="idDepartament" placeholder="ID_Departament" class="form-input">
+    <button type="submit" class="form-button">Insert </button>
+  </form>
+
+  <table class="studenti">
+    <thead>
+      <tr>
+        <th>ID_Student</th>
+        <th>Nume</th>
+        <th>Prenume</th>
+        <th>CNP</th>
+        <th>Email</th>
+        <th>Sex</th>
+        <th>Data_nasterii</th>
+        <th>ID_Departament</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% secondSet.forEach(function(record) { %>
+        <tr>
+          <td>
+            <%= record.ID_Student %>
+          </td>
+          <td>
+            <%= record.Nume %>
+          </td>
+          <td>
+            <%= record.Prenume %>
+          </td>
+          <td>
+            <%= record.CNP %>
+          </td>
+          <td>
+            <%= record.Email %>
+          </td>
+          <td>
+            <%= record.Sex %>
+          </td>
+          <td>
+            <%= record.Data_nasterii %>
+          </td>
+          <td>
+            <%= record.ID_Departament %>
+          </td>
+          <td>
+            <form action="/update-page-student" method="post">
+              <input type="hidden" name="idToUpdate" value="<%= record.ID_Student %>">
+              <button type="submit" class="form-button">Update</button>
+            </form>
+            <form action="/delete-student" method="post">
+              <input type="hidden" name="idToDelete" value="<%= record.ID_Student %>">
+              <button type="submit" class="form-button">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }); %>
+    </tbody>
+  </table>
+
+  <h1 class="titlu">Date despre Dotari</h1>
+  <table class="dotari">
+    <thead>
+      <tr>
+        <th>ID_Dotare</th>
+        <th>Nume</th>
+        <th>Descriere</th>
+        <th>Stoc_disponibil</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < thirdSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= thirdSet[i].ID_Dotare %>
+          </td>
+          <td>
+            <%= thirdSet[i].Nume %>
+          </td>
+          <td>
+            <%= thirdSet[i].Descriere %>
+          </td>
+          <td>
+            <%= thirdSet[i].Stoc_disponibil %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+  <h1 class="titlu">Date despre Dotari-Sali</h1>
+  <table class="dotari-sali">
+    <thead>
+      <tr>
+        <th>ID_Sala</th>
+        <th>ID_Dotare</th>
+        <th>Data_intrare</th>
+        <th>Data_iesire</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < fourthSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= fourthSet[i].ID_Sala %>
+          </td>
+          <td>
+            <%= fourthSet[i].ID_Dotare %>
+          </td>
+          <td>
+            <%= fourthSet[i].Data_intrare %>
+          </td>
+          <td>
+            <%= fourthSet[i].Data_iesire %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+
+  <h1 class="titlu">Date despre Facultate</h1>
+  <table class="facultate">
+    <thead>
+      <tr>
+        <th>ID_Facultate</th>
+        <th>Nume</th>
+        <th>Adresa</th>
+        <th>Numar_telefon</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < fifthSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= fifthSet[i].ID_Facultate %>
+          </td>
+          <td>
+            <%= fifthSet[i].Nume %>
+          </td>
+          <td>
+            <%= fifthSet[i].Adresa %>
+          </td>
+          <td>
+            <%= fifthSet[i].Numar_telefon %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+
+  <h1 class="titlu">Date despre Sali</h1>
+  <table class="sali">
+    <thead>
+      <tr>
+        <th>ID_Sala</th>
+        <th>Numar</th>
+        <th>Capacitate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < sixthSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= sixthSet[i].ID_Sala %>
+          </td>
+          <td>
+            <%= sixthSet[i].Numar %>
+          </td>
+          <td>
+            <%= sixthSet[i].Capacitate %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+
+
+
+  <h1 class="titlu">Interogari</h1>
+ 
+  <div class="interogare">
+    <p class="explicatie"> Vrei sa vezi numele și capacitatea sălilor împreună cu denumirea dotărilor asociate?</p>
+    <form action="/afisareDotariSali" method="post" class="interogare-form">
+        <button type="submit" class="form-button">Daca da, apasa aici!</button>
+    </form>
+</div>
+
+<div class="interogare">
+    <p class="explicatie">Vrei sa vezi numele si prenumele studentilor care apartin de departamentul "Sisteme Electroenergetice" si sunt nascuti dupa anul 2002?</p>
+    <form action="/afisareStudentiSistemeElectroenergetice" method="post" class="interogare-form">
+        <button type="submit" class="form-button">Daca da, apasa aici!</button>
+    </form>
+</div>
+
+  <div class="interogare">
+  <p class="explicatie"> Vrei sa vezi salile dotate cu calculatoare?</p>
+  <form action="/afisareSaliCuCalculatoare" method="post" class="interogare-button">
+    <button type="submit">Daca da, apasa aici!</button>
+  </form>
+  </div>
+
+  <div class="interogare">
+    <p class="explicatie"> Vrei sa vezi departamentele si cati studenti exista in fiecare departament?</p>
+  <form action="/afisareNumarStudentiPeDepartament" method="post" class="interogare-button">
+    <button type="submit">Daca da, apasa aici!</button>
+  </form>
+  </div>
+
+  <div class="interogare">
+    <p class="explicatie"> Vrei sa vezi cei mai mari 5 studenti inscrisi la facultate?</p>
+  <form action="/afisareTop5Studenti" method="post" class="interogare-button">
+    <button type="submit">Daca da, apasa aici!</button>
+  </form>
+  </div>    
+
+  
+  <div class="interogare">
+    <p class="explicatie"> Vrei sa vezi numele dotărilor împreună cu numărul de sali în care sunt disponibile?</p>
+  <form action="/afisareNumarSaliPeDotare" method="post" class="interogare-button">
+    <button type="submit">Daca da, apasa aici!</button>
+  </form>
+</div>  
+
+<div class="interogare">
+  <p class="explicatie"> Vrei sa vezi numele și prenumele studenților împreună cu numele facultății în care sunt înregistrați?</p>
+  <form action="/afisareStudentiFacultate" method="post" class="interogare-button">
+    <button type="submit">Daca da, apasa aici!</button>
+  </form>
+</div>  
+
+<div class="interogare">
+  <p class="explicatie"> Vrei sa vezi toate facultățile care au cel puțin un student de sex feminin/masculin? Tu poti alege!</p>
+  <form action="/afisareFacultatiCuStudenteFemei" method="post" class="interogare-button">
+    <button type="submit">Daca da, apasa aici!</button>
+  </form>
+</div>  
+
+<div class="interogare"></div>
+<p class="explicatie"> Vrei sa vezi salile care au mai mult de doua dotari si care nu au iesit din stocul facultatii?</p>
+  <form action="/afisareSaliCuDotariMinim2" method="post" class="interogare-button">
+    <button type="submit">Daca da, apasa aici!</button>
+  </form>
+</div>  
+
+<div class="interogare"></div>  
+<p class="explicatie"> Vrei sa vezi studenții care au cel puțin un coleg cu aceeași dată de naștere?</p>
+  <form action="/afisareStudentiCuAceeasiDataNasterii" method="post" class="interogare-button">
+    <button type="submit">Daca da, apasa aici!</button>
+  </form>
+  </div>  
+
+  <div class="interogare"></div>  
+  <p class="explicatie"> Vrei sa vezi departamentele care au cel puțin doi studenți și au pe aceeasi adresa?</p>
+  <form action="/afisareDepartamenteCuStudentiSiFacultatiComune" method="post" class="interogare-button">
+    <button type="submit">Daca da, apasa aici!</button>
+  </form>
+</div>  
+
+
+</body>
+</html>
+
+

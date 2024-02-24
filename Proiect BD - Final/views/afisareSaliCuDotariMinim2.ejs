@@ -1,0 +1,36 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+
+
+  <h2>-2-Afișati salile care au mai mult de doua dotari si care nu au iesit din stocul facultatii:</h2>
+  <table class="sali-cu-dotari-minim-2">
+    <thead>
+      <tr>
+        <th>ID_Sala</th>
+        <th>Numar</th>
+        <th>Capacitate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < saliCuDotariMinim2Set.length; i++) { %>
+        <tr>
+          <td>
+            <%= saliCuDotariMinim2Set[i].ID_Sala %>
+          </td>
+          <td>
+            <%= saliCuDotariMinim2Set[i].Numar %>
+          </td>
+          <td>
+            <%= saliCuDotariMinim2Set[i].Capacitate %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+</body>

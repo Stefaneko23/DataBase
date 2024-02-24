@@ -1,0 +1,36 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Records Page</title>
+  <link rel="stylesheet" href="/STYLE.css">
+</head>
+
+<body>
+
+
+  <h2>-7-Afișează numele și prenumele studenților împreună cu numele facultății în care sunt înregistrați:</h2>
+  <table class="studenti-facultate">
+    <thead>
+      <tr>
+        <th>Nume</th>
+        <th>Prenume</th>
+        <th>Nume_Facultate</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (var i=0; i < studentiFacultateSet.length; i++) { %>
+        <tr>
+          <td>
+            <%= studentiFacultateSet[i].Nume %>
+          </td>
+          <td>
+            <%= studentiFacultateSet[i].Prenume %>
+          </td>
+          <td>
+            <%= studentiFacultateSet[i].Nume_Facultate %>
+          </td>
+        </tr>
+        <% } %>
+    </tbody>
+  </table>
+</body>
